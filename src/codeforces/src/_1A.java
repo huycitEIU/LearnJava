@@ -6,7 +6,7 @@ public class _1A {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int n, m, a;
+        long n, m, a;
         n = sc.nextInt();
         m = sc.nextInt();
         a = sc.nextInt();
