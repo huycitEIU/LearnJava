@@ -61,11 +61,11 @@ public class caro33 {
      * The board is a 3x3 grid.
      * The cells are empty initially.
      * -------------
-     * | | | |
+     * |   |   |   |
      * -------------
-     * | | | |
+     * |   |   |   |
      * -------------
-     * | | | |
+     * |   |   |   |
      * -------------
      * 
      * @param board the game board
@@ -112,11 +112,15 @@ public class caro33 {
      */
     static boolean isWin(char[][] board, char player) {
         for (int i = 0; i < 3; i++) {
+
+            // Check rows and columns
             if ((board[i][0] == player && board[i][1] == player && board[i][2] == player)
                     || (board[0][i] == player && board[1][i] == player && board[2][i] == player)) {
                 return true;
             }
         }
+
+        // Check diagonals
         return (board[0][0] == player && board[1][1] == player && board[2][2] == player)
                 || (board[0][2] == player && board[1][1] == player && board[2][0] == player);
     }
