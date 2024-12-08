@@ -27,6 +27,11 @@ public class classiccalculator {
         return evaluatePostfix(postfix);
     }
 
+    /**
+     * Evaluates a postfix expression
+     * @param expression the postfix expression
+     * @return the result of the expression
+     */
     static double evaluatePostfix(String expression) {
         Stack<Double> stack = new Stack<>();
         String [] tokens = expression.split(" ");
@@ -48,10 +53,17 @@ public class classiccalculator {
         return stack.pop();
     }
 
+    /**
+     * Converts an infix expression to a postfix expression
+     * @param expression the infix expression
+     * @return the postfix expression
+     */
     static String infixToPostfix(String expression) {
+
         StringBuilder result = new StringBuilder();
         Stack<Character> operatorStack = new Stack<>();
         String [] tokens = expression.split(" ");
+
         for (String token: tokens) {
             char c = token.charAt(0);
 
@@ -60,11 +72,13 @@ public class classiccalculator {
             } else if (c == '(') {
                 operatorStack.push(c);
             } else if (c == ')') {
+                // Pop operators from the stack until we find an opening parenthesis
                 while (!operatorStack.isEmpty() && operatorStack.peek() != '(') {
                     result.append(operatorStack.pop()).append(" ");
                 }
                 operatorStack.pop();
             } else {
+                // Pop operators from the stack while they have higher or equal precedence
                 while (!operatorStack.isEmpty() && precedence(c) <= precedence(operatorStack.peek())) {
                     result.append(operatorStack.pop()).append(" ");
                 }
@@ -79,6 +93,11 @@ public class classiccalculator {
         return result.toString();
     }
 
+    /**
+     * Returns the precedence of an operator
+     * @param c the operator
+     * @return the precedence of the operator
+     */
     static int precedence(char c) {
         return switch (c) {
             case '+', '-' -> 1;
