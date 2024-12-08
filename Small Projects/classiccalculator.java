@@ -1,3 +1,13 @@
+/*
+ * This program is a classic calculator that can evaluate arithmetic expressions.
+ * It uses the shunting-yard algorithm to convert infix expressions to postfix expressions
+ * and then evaluates the postfix expression.
+ * The program supports the following operators: +, -, *, /
+ * The program also supports parentheses.
+ * Java 12 is required to run this program.
+ */
+
+
 
 import java.util.Scanner;
 import java.util.Stack;
